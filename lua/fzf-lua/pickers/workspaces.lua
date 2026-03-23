@@ -113,7 +113,6 @@ local M = {
                     if ws_name == "" then
                         return
                     end
-                    local ws_loc = pathlib.new(opts.workspace_location) / ws_name
                     if not dirman.add_workspace(ws_name, ws_loc) then
                         log.error("failed to create workspace " .. ws_name)
                         return
