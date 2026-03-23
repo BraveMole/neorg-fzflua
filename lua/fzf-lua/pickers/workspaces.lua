@@ -84,7 +84,7 @@ local M = {
                 [opts.pickers.keymaps.delete] = {
                     function(ws_name)
                         local confirm = vim.fn.confirm(
-                            "delete workspace " .. ws_name[1] .. "? (this will delete all files in the workspace)",
+                            "delete workspace " .. ws_name[1] .. "?",
                             "&Yes\n&No",
                             2
                         )
