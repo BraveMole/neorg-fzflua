@@ -59,6 +59,7 @@ module.config.public = {
         files = "<leader>of",
     },
     workspace_location = nil,
+    base_workspace_location = ""
 }
 
 --- @class neorg.integrations.fzf-lua.picker.config

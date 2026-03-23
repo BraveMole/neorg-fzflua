@@ -104,7 +104,7 @@ local M = {
                     if opts.workspace_location then
                         ws_loc = pathlib.new(opts.workspace_location) / ws_name
                     else
-                        ws_loc = vim.fn.input("Workspace location: ", "", "file")
+                        ws_loc = vim.fn.input("Workspace location: ", opts.base_workspace_location, "file")
                     end
                     if ws_loc == "" then
                         return
