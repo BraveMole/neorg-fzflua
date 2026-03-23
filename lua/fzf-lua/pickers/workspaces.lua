@@ -42,11 +42,9 @@ local function delete_workspace(ws_name)
         log.error("unexpectedly could not get workspace " .. ws_name)
         return
     end
-    local result = os.execute("rm -rf " .. ws)
-    if not result then
-        log.error("failed to delete workspace " .. ws_name)
-    else
-        log.info("deleted workspace " .. ws_name)
+    if not dirman.delete_workspace(ws_name) then
+        log.error("cannot delete workspace, are you sure it is a dynamically created one ?")
+        return
     end
     if dirman.get_current_workspace()[2] == ws then
         dirman.set_workspace("default")
@@ -86,7 +84,7 @@ local M = {
                 [opts.pickers.keymaps.delete] = {
                     function(ws_name)
                         local confirm = vim.fn.confirm(
-                            "delete workspace " .. ws_name[1] .. "? (this will delete all files in the workspace)",
+                            "delete workspace " .. ws_name[1] .. "?",
                             "&Yes\n&No",
                             2
                         )
