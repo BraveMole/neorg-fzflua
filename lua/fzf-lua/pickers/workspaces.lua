@@ -98,16 +98,15 @@ local M = {
                     header = "Delete workspace",
                 },
                 [opts.pickers.keymaps.create] = function()
-                    local ws_loc = ""
                     if not opts.workspace_location then
-                        ws_loc = vim.fn.input("Workspace location: ", "", "file")
-                    else
-                        ws_loc = pathlib.new(opts.workspace_location) / ws_name
+                        log.error("Must set workspace_location opt to create a workspace")
+                        return
                     end
                     local ws_name = vim.fn.input("Workspace name: ", "", "file")
                     if ws_name == "" then
                         return
                     end
+                    local ws_loc = pathlib.new(opts.workspace_location) / ws_name
                     if not dirman.add_workspace(ws_name, ws_loc) then
                         log.error("failed to create workspace " .. ws_name)
                         return
