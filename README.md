@@ -59,6 +59,8 @@ The following configuration options are offered with some defaults:
     },
     -- Set for on-demand workspaces.
     workspace_location = nil,
+    -- Optional base workspace folder
+    base_workspace_location = ""
 }
 ```
 > For a full list of picker-specific Fzf options, see the [fzf-lua docs](https://github.com/ibhagwan/fzf-lua/wiki/Advanced#api-basics-fzf_exec).
@@ -69,7 +71,7 @@ The following configuration options are offered with some defaults:
 - Workspaces picker
   - Switch and delete workspaces
   - Creating on-demand workspaces
-    - Creates a workspace in the directory designed by `workspace_location`
+    - Creates a workspace in the directory designed by `workspace_location`. If 'workspace_location' is not filled in, will take the input from the user
 - Files picker
   - Switch, create, and delete files in current workspace
  
