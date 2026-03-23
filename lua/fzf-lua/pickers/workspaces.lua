@@ -106,6 +106,9 @@ local M = {
                     else
                         ws_loc = vim.fn.input("Workspace location: ", "", "file")
                     end
+                    if ws_loc == "" then
+                        return
+                    end
                     local ws_name = vim.fn.input("Workspace name: ", "", "file")
                     if ws_name == "" then
                         return
